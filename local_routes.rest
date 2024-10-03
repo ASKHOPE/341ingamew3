@@ -12,7 +12,7 @@ GET http://localhost:8080/user/650e9057eda1c94561e08a3e
 
 // PUBLISHED REST FOR USER //
 ###
-GET https://three41ingamew3.onrender.com
+GET https://three41ingamew3.onrender.com/
 
 ###
 GET https://three41ingamew3.onrender.com/user
@@ -81,7 +81,9 @@ content-type: application/json
   "lastName": "Mon",
   "email": "mosand@test.com",
   "favoriteColor": "Blue",
-  "birthday": "21/11/10"
+  "birthday": "21/11/10",
+  "nickname": "DiT",
+  "gender": "Male"
 }
 
 ###
@@ -93,7 +95,9 @@ content-type: application/json
   "lastName": "Tue",
   "email": "tuesab@test.com",
   "favoriteColor": "Blue",
-  "birthday": "21/11/10"
+  "birthday": "21/11/10",
+  "nickname": "Satt",
+  "gender": "Female"
 }
 
 ###
