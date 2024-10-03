@@ -1,0 +1,96 @@
+
+// LOCALHOST REST FOR USER //
+###
+GET http://localhost:8080/
+
+
+### Get all clients
+GET http://localhost:8080/user
+
+### Get client by id=
+GET http://localhost:8080/user/650e9057eda1c94561e08a3e
+
+// PUBLISHED REST FOR USER //
+###
+GET https://three41ingamew2.onrender.com/
+
+###
+GET https://three41ingamew2.onrender.com/user
+
+###
+GET https://three41ingamew2.onrender.com/user/650e9075eda1c94561e08a40
+
+
+// LOCALHOST REST FOR clients //
+###
+GET http://localhost:8080/
+
+### Get all clients
+GET http://localhost:8080/clients
+
+### Get client by id=
+GET http://localhost:8080/clients/650e9075eda1c94561e08a40
+
+###
+POST http://localhost:8080/clients HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Vesad",
+  "lastName": "Mon",
+  "email": "testingemail@gmail.com",
+  "favoriteColor": "Blue",
+  "birthday": "21/11/10"
+}
+
+###
+PUT http://localhost:8080/clients/650e9064eda1c94561e08a3f HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Dimitri",
+  "lastName": "Tue",
+  "email": "tuesabtest@cse.com",
+  "favoriteColor": "Blue",
+  "birthday": "21/12/11"
+}
+
+###
+DELETE http://localhost:8080/clients/650e9075eda1c94561e08a40
+
+// PUBLISHED REST FOR clients
+###
+GET https://three41ingamew2.onrender.com/api-docs
+
+###
+GET https://three41ingamew2.onrender.com/clients
+
+###
+GET https://three41ingamew2.onrender.com/clients/66f438b2394d207de5f8508a
+
+###
+POST https://three41ingamew2.onrender.com/clients HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Sande",
+  "lastName": "Mon",
+  "email": "mosand@test.com",
+  "favoriteColor": "Blue",
+  "birthday": "21/11/10"
+}
+
+###
+PUT https://three41ingamew2.onrender.com/clients/66f438b2394d207de5f8508a HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Sande",
+  "lastName": "Tue",
+  "email": "tuesab@test.com",
+  "favoriteColor": "Blue",
+  "birthday": "21/11/10"
+}
+
+###
+DELETE https://three41ingamew2.onrender.com/clients/66f438b2394d207de5f8508a

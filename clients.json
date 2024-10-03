@@ -1,0 +1,38 @@
+[
+  {
+    "_id": {
+      "$oid": "650e9057eda1c94561e08a3e"
+    },
+    "firstName": "Arnold",
+    "lastName": "Katru",
+    "email": "arniek@test.com",
+    "favoriteColor": "Blue",
+    "birthday": "24/2/19",
+    "nickname": "Arnie",
+    "gender": "Male"
+  },
+  {
+    "_id": {
+      "$oid": "650e9064eda1c94561e08a3f"
+    },
+    "firstName": "Bobby",
+    "lastName": "Katru",
+    "email": "kbob@test.com",
+    "favoriteColor": "Black",
+    "birthday": "07/12/20",
+    "nickname": "Arnie",
+    "gender": "Male"
+  },
+  {
+    "_id": {
+      "$oid": "650e9075eda1c94561e08a40"
+    },
+    "firstName": "Prabh",
+    "lastName": "Katru",
+    "email": "AndersonC@test.com",
+    "favoriteColor": "Maroon",
+    "birthday": "02/12/67",
+    "nickname": "Arnie",
+    "gender": "Male"
+  }
+]
