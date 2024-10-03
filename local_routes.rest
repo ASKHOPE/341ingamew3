@@ -83,7 +83,7 @@ content-type: application/json
   "favoriteColor": "Blue",
   "birthday": "21/11/10",
   "nickname": "DiT",
-  "gender": "Male"
+  "gender": "male"
 }
 
 ###

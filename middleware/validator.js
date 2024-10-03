@@ -8,7 +8,7 @@ exports.userValidation = [
     check('favoriteColor', 'Favorite color is required').not().isEmpty().trim().isString(),
     check('birthday', 'Please include a valid date of birth').isDate({ format: 'DD/MM/YY' }),
     check('nickname', 'Nickname is required').not().isEmpty().trim().isString().matches(("^[a-zA-Z]*$")),
-    check('gender', 'Gender is required').not().isEmpty().trim().isString().matches(("^[a-zA-Z]*$")).isIn(['male', 'female', 'other']).toLowerCase(),
+    check('gender', 'Gender is required').not().isEmpty().trim().isString().matches(("^[a-zA-Z]*$")).toLowerCase(isIn(['male','m', 'female','f', 'other'])),
 ];
 
 exports.validationResult = validationResult;
