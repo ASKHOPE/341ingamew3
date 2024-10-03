@@ -5,7 +5,7 @@ const doc = {
     title: "My API for CSE341 Week 2",
     description: "clients API",
   },
-  host: "three41ingamew2.onrender.com",
+  host: "three41ingamew3.onrender.com",
   schemes: ["https"],
 };
 

@@ -12,13 +12,13 @@ GET http://localhost:8080/user/650e9057eda1c94561e08a3e
 
 // PUBLISHED REST FOR USER //
 ###
-GET https://three41ingamew2.onrender.com/
+GET https://three41ingamew3.onrender.com
 
 ###
-GET https://three41ingamew2.onrender.com/user
+GET https://three41ingamew3.onrender.com/user
 
 ###
-GET https://three41ingamew2.onrender.com/user/650e9075eda1c94561e08a40
+GET https://three41ingamew3.onrender.com/user/650e9075eda1c94561e08a40
 
 
 // LOCALHOST REST FOR clients //
@@ -40,7 +40,9 @@ content-type: application/json
   "lastName": "Mon",
   "email": "testingemail@gmail.com",
   "favoriteColor": "Blue",
-  "birthday": "21/11/10"
+  "birthday": "21/11/10",
+  "nickname": "Vmone",
+  "gender": "Male"
 }
 
 ###
@@ -52,7 +54,9 @@ content-type: application/json
   "lastName": "Tue",
   "email": "tuesabtest@cse.com",
   "favoriteColor": "Blue",
-  "birthday": "21/12/11"
+  "birthday": "21/12/11",
+  "nickname": "DiT",
+  "gender": "Male"
 }
 
 ###
@@ -60,16 +64,16 @@ DELETE http://localhost:8080/clients/650e9075eda1c94561e08a40
 
 // PUBLISHED REST FOR clients
 ###
-GET https://three41ingamew2.onrender.com/api-docs
+GET https://three41ingamew3.onrender.com/api-docs
 
 ###
-GET https://three41ingamew2.onrender.com/clients
+GET https://three41ingamew3.onrender.com/clients
 
 ###
-GET https://three41ingamew2.onrender.com/clients/66f438b2394d207de5f8508a
+GET https://three41ingamew3.onrender.com/clients/66f438b2394d207de5f8508a
 
 ###
-POST https://three41ingamew2.onrender.com/clients HTTP/1.1
+POST https://three41ingamew3.onrender.com/clients HTTP/1.1
 content-type: application/json
 
 {
@@ -81,7 +85,7 @@ content-type: application/json
 }
 
 ###
-PUT https://three41ingamew2.onrender.com/clients/66f438b2394d207de5f8508a HTTP/1.1
+PUT https://three41ingamew3.onrender.com/clients/66f438b2394d207de5f8508a HTTP/1.1
 content-type: application/json
 
 {
@@ -93,4 +97,4 @@ content-type: application/json
 }
 
 ###
-DELETE https://three41ingamew2.onrender.com/clients/66f438b2394d207de5f8508a
+DELETE https://three41ingamew3.onrender.com/clients/66f438b2394d207de5f8508a
