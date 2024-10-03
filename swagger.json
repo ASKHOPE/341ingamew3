@@ -5,7 +5,7 @@
     "description": "Clientel API",
     "version": "1.1.0"
   },
-  "host": "https://three41ingamew3.onrender.com",
+  "host": "three41ingamew3.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
