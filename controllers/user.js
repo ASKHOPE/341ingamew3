@@ -14,15 +14,20 @@ const getAll = async (req, res, next) => {
   }
 };
 
-const getSingle = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db().collection('user').find({ _id: userId });
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
-};
 
+const getSingle = async (req, res, next) => {
+  try {
+    const db = mongodb.getDb();
+    const userId = new ObjectId(req.params.id);
+    const user = await db.collection("users").findOne({ _id: userId });
+    if (!user) {
+      return res.status(404).json({ message: "user not found." });
+    }
+    res.status(200).json(user);
+  } catch (err) {
+    next(err);
+  }
+};
 
 const createUser = async (req, res) => {
   const user = {
@@ -48,32 +53,37 @@ const createUser = async (req, res) => {
   }
 };
 
-const updateUser = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  // be aware of updateOne if you only want to update specific fields
-  const user = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday,
-  };
-  const response = await mongodb
-    .getDb()
-    .db()
-    .collection("users")
-    .replaceOne({ _id: userId }, user);
-  console.log(response);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(
-        response.error || "Some error occurred while updating the user."
-      );
+const updateUser = async (req, res, next) => {
+  try {
+    const userId = new ObjectId(req.params.id);
+    const { firstName, lastName, email, favoriteColor, birthday, nickname, gender } = req.body;
+    const updateduser = {
+      firstName,
+      lastName,
+      email,
+      favoriteColor,
+      birthday,
+      nickname,
+      gender
+    };
+
+    const db = mongodb.getDb();
+    const result = await db
+      .collection("users")
+      .updateOne({ _id: userId }, { $set: updateduser });
+
+    if (result.matchedCount === 0) {
+      return res
+        .status(404)
+        .json({ message: "user not found, Check the ID" });
+    }
+
+    res.status(200).json({ message: "user updated", result });
+  } catch (err) {
+    next(err);
   }
 };
+
 
 
 const deleteUser = async (req, res, next) => {
