@@ -9,7 +9,7 @@ router.use("/", require("./swagger"));
 
 
 // // Routes
-routes.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("Node.js API for user validation");
 });
 
