@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 const userController = require('../controllers/user');
-const { userValidation2, validationResult } = require('../middleware/validator');
+const { userValidation, validationResult } = require('../middleware/validator');
 
 router.get('/', userController.getAll);
 
 router.get('/:id', userController.getSingle);
 
-router.post("/", userValidation2, (req, res, next) => {
+router.post("/", userValidation, (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -16,7 +16,7 @@ router.post("/", userValidation2, (req, res, next) => {
     userController.createUser(req, res, next);
 });
 
-router.put("/:id", userValidation2, (req, res, next) => {
+router.put("/:id", userValidation, (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -29,7 +29,7 @@ router.options('/:id', (req, res) => {
     res.send();
 });
 
-router.patch("/:id", userValidation2, (req, res, next) => {
+router.patch("/:id", userValidation, (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
