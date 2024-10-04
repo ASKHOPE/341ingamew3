@@ -4,11 +4,11 @@ const ObjectId = require('mongodb').ObjectId;
 const getAll = async (req, res, next) => {
   try {
     const db = mongodb.getDb();
-    const users = await db.collection("user").find().toArray();
-    if (users.length === 0) {
+    const user = await db.collection("user").find().toArray();
+    if (user.length === 0) {
       return res.status(404).json({ message: "No users found." });
     }
-    res.status(200).json(users);
+    res.status(200).json(user);
   } catch (err) {
     next(err);
   }
@@ -19,7 +19,7 @@ const getSingle = async (req, res, next) => {
   try {
     const db = mongodb.getDb();
     const userId = new ObjectId(req.params.id);
-    const user = await db.collection("users").findOne({ _id: userId });
+    const user = await db.collection("user").findOne({ _id: userId });
     if (!user) {
       return res.status(404).json({ message: "user not found." });
     }
@@ -40,7 +40,7 @@ const createUser = async (req, res) => {
   const response = await mongodb
     .getDb()
     .db()
-    .collection("users")
+    .collection("user")
     .insertOne(user);
   if (response.acknowledged) {
     res.status(201).json(response);
@@ -69,7 +69,7 @@ const updateUser = async (req, res, next) => {
 
     const db = mongodb.getDb();
     const result = await db
-      .collection("users")
+      .collection("user")
       .updateOne({ _id: userId }, { $set: updateduser });
 
     if (result.matchedCount === 0) {
@@ -90,7 +90,7 @@ const deleteUser = async (req, res, next) => {
   try {
     const db = mongodb.getDb();
     const userId = new ObjectId(req.params.id);
-    const user = await db.collection("users").findOne({ _id: userId });
+    const user = await db.collection("user").findOne({ _id: userId });
     if (!user) {
       return res.status(404).json({ message: "User not found or no user in the database." });
     }
