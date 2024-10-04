@@ -75,22 +75,22 @@ const updateUser = async (req, res) => {
   }
 };
 
-const deleteUser = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const response = await mongodb
-    .getDb()
-    .db()
-    .collection("users")
-    .remove({ _id: userId }, true);
-  console.log(response);
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(
-        response.error || "Some error occurred while deleting the user."
-      );
+
+const deleteUser = async (req, res, next) => {
+  try {
+    const db = mongodb.getDb();
+    const userId = new ObjectId(req.params.id);
+    const user = await db.collection("users").findOne({ _id: userId });
+    if (!user) {
+      return res.status(404).json({ message: "User not found or no user in the database." });
+    }
+    
+    const result = await db
+      .collection("user")
+      .deleteOne({ _id: userId });
+    res.status(200).json({ message: "User deleted", result });
+  } catch (err) {
+    next(err);
   }
 };
 
