@@ -5,6 +5,7 @@ router.use('/user', require('./user'));
 router.use('/clients', require('./clients'))
 // router.get('/',(req,res) => {res.send('Hello World')});
 router.use("/", require("./swagger"));
+const {userValidation, validationResult } = require('../middleware/validator');
 
 
 
